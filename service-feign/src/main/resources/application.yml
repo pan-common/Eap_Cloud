@@ -1,0 +1,15 @@
+feign:
+  hystrix:
+    enabled: true
+server:
+  port: 8763
+spring:
+  application:
+    name: service-feign
+eureka:
+  client:
+    service-url:
+      deaultZone: http://192.168.51.149:8761/eureka/
+logging:
+  level:
+    root: INFO
