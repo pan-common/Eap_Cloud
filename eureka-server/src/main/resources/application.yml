@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: eureka-server
+---
+spring:
+  profiles: peer1
+server:
+  port: 7001
+eureka:
+  instance:
+    hostname: 192.168.51.149
+  client:
+    service-url:
+      deaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+    register-with-eureka: false
+    fetch-registry: false
+---
+spring:
+  profiles: peer2
+server:
+  port: 7002
+eureka:
+  instance:
+    hostname: peer2
+  client:
+    service-url:
+      deaultZone: http://peer1:7001/eureka/
+    register-with-eureka: false
+    fetch-registry: false
